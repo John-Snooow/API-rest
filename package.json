@@ -1,0 +1,19 @@
+{
+  "name": "api-rest",
+  "version": "1.0.0",
+  "author": "John Frank",
+  "description": "Criando um projeto API REST com Node.js",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/John-Snooow/API-rest.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/John-Snooow/API-rest/issues"
+  },
+  "homepage": "https://github.com/John-Snooow/API-rest#readme"
+}
