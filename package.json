@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/John-Snooow/API-rest/issues"
   },
-  "homepage": "https://github.com/John-Snooow/API-rest#readme"
+  "homepage": "https://github.com/John-Snooow/API-rest#readme",
+  "devDependencies": {
+    "@types/node": "^20.14.12",
+    "typescript": "^5.5.4"
+  }
 }
