@@ -3,10 +3,10 @@ import express from 'express'
 const PORT = 3333
 const app = express()
 
-app.get('/products/:id/:user', (request, response) => {
-    const { id, user } = request.params
+app.get('/products', (request, response) => {
+    const { page, limit } = request.query
 
-    response.send(`Product ID: ${id} User: ${user}`)
+    response.send(`Página ${page} de ${limit} `)
 })
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`))    
