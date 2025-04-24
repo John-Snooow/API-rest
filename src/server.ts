@@ -5,7 +5,8 @@ const PORT = 3333
 const app = express()
 app.use(express.json())
 
-app.use(myMiddleware)//Middleware global, aplicado em todas as rotas
+//app.use(myMiddleware) //Middleware global, aplicado em todas as rotas a baixo dele
+
 
 app.get('/products', (request, response) => {
     const { page, limit } = request.query
@@ -13,7 +14,8 @@ app.get('/products', (request, response) => {
     response.send(`Página ${page} de ${limit} `)
 })
 
-app.post('/products', (request, response) => {
+//Middleware local em uma rota especifica
+app.post('/products', myMiddleware, (request, response) => {
     const { name, price } = request.body
 
     //response.send(`O produto ${name} custa ${price} `) => Visualizam o objeto em formato de texto
