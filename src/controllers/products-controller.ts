@@ -19,11 +19,20 @@ class ProductsController {
 
   create(request: Request, response: Response) {
     const bodySchema = z.object({
-      name: z.string({required_error: "Nome do produto é obrigatório!"}),
-      price: z.number({required_error: "Preço do produto é obrigatório!"})
-    })
+      name: z
+        .string({ required_error: "Nome do produto é obrigatório!" })
+        .trim()
+        .min(6, {
+          message: "Nome do produto deve ter pelo menos 6 caracteres!",
+        }),
+      price: z
+        .number({ required_error: "Preço do produto é obrigatório!" })
+        .positive({
+          message: "Preço do produto nao pode ser menor que zero!",
+        }),
+    });
 
-    const { name, price } = bodySchema.parse(request.body)
+    const { name, price } = bodySchema.parse(request.body);
 
     /*
     if(!name){
@@ -44,11 +53,10 @@ class ProductsController {
     }
     */
 
-    
     // throw new Error("Erro ao tentar criar um produto!")
     // throw new AppError("Erro ao tentar criar um produto")
 
-    response.status(201).json({ name, price, user_id: request.user_id })
+    response.status(201).json({ name, price, user_id: request.user_id });
   }
 }
 
