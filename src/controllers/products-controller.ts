@@ -19,8 +19,8 @@ class ProductsController {
 
   create(request: Request, response: Response) {
     const bodySchema = z.object({
-      name: z.string(),
-      price: z.number().nullish(),
+      name: z.string({required_error: "Nome do produto é obrigatório!"}),
+      price: z.number({required_error: "Preço do produto é obrigatório!"})
     })
 
     const { name, price } = bodySchema.parse(request.body)
